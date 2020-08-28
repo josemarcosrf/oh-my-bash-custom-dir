@@ -7,5 +7,5 @@ Mainly all definitions that before were in `.bashrc` and a custom theme (`jmrf`)
 
 ## Restore
 
-To restore, simply copy the entire repo in the `oh-my-bash` installation directory. (Usually `~/.oh-my-bash`)
+To restore, simply copy the entire repo in the `custom` sub-folder of the `oh-my-bash` installation directory. (i.e.: `~/.oh-my-bash/custom`)
 
