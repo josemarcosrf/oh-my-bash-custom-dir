@@ -75,6 +75,30 @@ docks() {
   docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Ports}}"
 }
 
+backup_photos() {
+    say @blue[["Copying ~/Pictures/Marcos/Olympus to Dropbox:Media/Photos/Olympus"]]
+    rclone copy \
+        ~/Pictures/Marcos/Olympus \
+        'Dropbox:Media/Photos/Olympus' \
+        --ignore-existing \
+        --include *.ORF \
+        --include *.JPG \
+        --include *.jpg \
+        --include *.pp3 \
+        --progress
+
+    say @blue[["Copying ~/Pictures/Marcos/Edited to Dropbox:Media/Photos/Edited"]]
+    rclone copy \
+        ~/Pictures/Marcos/Edited \
+        'Dropbox:Media/Photos/Edited' \
+        --ignore-existing \
+        --include *.ORF \
+        --include *.JPG \
+        --include *.jpg \
+        --include *.pp3 \
+        --progress
+}
+
 export -f coln
 export -f now_deployments
 export -f docker-compose-restart
@@ -83,7 +107,7 @@ export -f k8logs
 export -f restart_pod
 export -f kill_all_dockers
 export -f docks
-export -f docks
+export -f backup_photos
 
 # parse_git_branch() {
 #      git branch 2> /dev/null | sed -e '/^[^*]/d ' -e 's/* \(.*\)/(\1) /'
