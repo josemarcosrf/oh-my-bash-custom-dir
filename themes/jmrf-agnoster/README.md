@@ -1,4 +1,4 @@
-# agnoster
+# jmrf-agnoster
 
 In order for this theme to render correctly, you will need a
 [Powerline-patched font](https://gist.github.com/1595572).
@@ -8,6 +8,23 @@ git clone https://github.com/powerline/fonts.git fonts
 cd fonts
 install.sh
 ```
+
+> **note**: Won't work straight away in `vscode`!
+
+To fix `vscode` integrated terminal:
+
+1. Download `Menlo for Powerline.ttf` from [Menlo-For-Powerline](https://github.com/abertsch/Menlo-for-Powerline) repo
+2. Copy to the fonts folder: `cp "Menlo for Powerline.ttf" ~/.fonts`
+3. Update the fonts cache: `fc-cache -vf ~/.fonts`
+4. In your `vscode` User Settings (Code | Preferences | Settings) add:
+```json
+  {
+  "terminal.integrated.fontFamily": "Menlo for Powerline",
+  }
+```
+
+
+----------
 
 The aim of this theme is to only show you *relevant* information. Like most
 prompts, it will only show git information when in a git working directory.
