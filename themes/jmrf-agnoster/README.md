@@ -45,5 +45,3 @@ write the left. This is problematic for the following reasons:
 all in all, if you really, really want right-side prompts without a
 ton of work, recommend going to zsh for now. If you know how to fix this,
 would appreciate it!
-
-![ScreenShot](agnoster-bash-sshot.png)
