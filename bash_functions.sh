@@ -15,13 +15,13 @@ say() {
          -e "s/@u/$(tput sgr 0 1)/g"
 }
 
-function coln() {
+coln() {
   col=$1
   shift
   awk -v col="$col" '{print $col}' "${@--}"
 }
 
-function now_deployments(){
+now_deployments(){
   # first parameter is the app name
   # second parameter is the row number from where to start printing (latest deployment is in row 2)
   res=$(now ls $1 | coln 2 | tail -n +$2 | tr '\n' ' ')
@@ -58,7 +58,7 @@ k8logs () {
   fi
 }
 
-function restart_pod() {
+restart_pod() {
    pod_name=$1
    kubectl scale deployment $pod_name --replicas=0
    sleep 5
@@ -99,6 +99,16 @@ backup_photos() {
         --progress
 }
 
+pfwd() {
+  # ssh port forwarding in the background without remote command
+  # usage example: pfwd dev-CINT 8888 8889 8080
+  for i in ${@:2}
+  do
+    echo Forwarding port $i
+    ssh -f -N -L $i:localhost:$i $1
+  done  
+}
+
 export -f coln
 export -f now_deployments
 export -f docker-compose-restart
@@ -108,6 +118,7 @@ export -f restart_pod
 export -f kill_all_dockers
 export -f docks
 export -f backup_photos
+export -f pfwd
 
 # parse_git_branch() {
 #      git branch 2> /dev/null | sed -e '/^[^*]/d ' -e 's/* \(.*\)/(\1) /'
