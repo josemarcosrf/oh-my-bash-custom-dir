@@ -102,10 +102,12 @@ backup_photos() {
 pfwd() {
   # ssh port forwarding in the background without remote command
   # usage example: pfwd dev-CINT 8888 8889 8080
-  for i in ${@:2}
+  host=$1
+  for port in ${@:2}
   do
-    echo Forwarding port $i
-    ssh -f -N -L $i:localhost:$i $1
+    say @magenta[["Forwarding port $port" to host $host]]
+    ssh -f -N -L $port:localhost:$port $host
+    lsof -i -P | grep LISTEN | grep $port
   done  
 }
 
