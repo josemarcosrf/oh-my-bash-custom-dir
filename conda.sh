@@ -13,4 +13,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
+# Added so tmux doesn't break conda
+[[ -z $TMUX ]] || conda deactivate; conda activate base
