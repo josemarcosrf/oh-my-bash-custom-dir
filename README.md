@@ -2,7 +2,11 @@
 
 This repo contains my [oh-my-bash](https://ohmybash.github.io/) ([src](https://github.com/ohmybash/oh-my-bash)) custom directory backup.
 
-Mainly all definitions that before were in `.bashrc` and a custom theme (`jmrf`) changing a little the `$PS1`, the shell prompt.
+Mainly:
+
+ - All definitions that before were in `.bashrc` 
+ - A bunch of custom themes (those starting by `jmrf`). Some changes to the colors and the `$PS1`, the shell prompt of these themes.
+ - A collection of useful [bash_functions](bash_functions.sh)
 
 
 ## Restore
