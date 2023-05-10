@@ -76,10 +76,10 @@ docks() {
 }
 
 backup_photos() {
-    say @blue[["Copying ~/Pictures/Marcos/Olympus to Dropbox:Media/Photos/Olympus"]]
+    say @blue[["Copying ~/Pictures/Marcos/Olympus to GoogleDrive:/Media/Photos/Olympus"]]
     rclone copy \
         ~/Pictures/Marcos/Olympus \
-        'Dropbox:Media/Photos/Olympus' \
+        'GoogleDrive:/Media/Photos/Olympus' \
         --ignore-existing \
         --include *.ORF \
         --include *.JPG \
@@ -87,10 +87,10 @@ backup_photos() {
         --include *.pp3 \
         --progress
 
-    say @blue[["Copying ~/Pictures/Marcos/Edited to Dropbox:Media/Photos/Edited"]]
+    say @blue[["Copying ~/Pictures/Marcos/Edited to GoogleDrive:/Media/Photos/Edited"]]
     rclone copy \
         ~/Pictures/Marcos/Edited \
-        'Dropbox:Media/Photos/Edited' \
+        'GoogleDrive:/Media/Photos/Edited' \
         --ignore-existing \
         --include *.ORF \
         --include *.JPG \
